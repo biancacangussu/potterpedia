@@ -26,17 +26,22 @@ export function NavBar() {
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href="/">
+              Home
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/characters">
               Characters
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href="#" color="secondary">
+            <Link color="foreground" href="/potions">
               Potions
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href="/spells">
               Spells
             </Link>
           </NavbarItem>

@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: "BluuNext";
-  src: url(../../../public/fonts/BluuNext.otf);
+  src: url(../../../fonts/BluuNext.otf);
 }
 
 @font-face {
   font-family: "HarryPotter";
-  src: url(../../../public/fonts/HarryPotter.TTF);
+  src: url(../../../fonts/HarryPotter.TTF);
 }
 
 body {

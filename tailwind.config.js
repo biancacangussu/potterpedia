@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-image': "url('./public/gradient.png')",
+        'gradient-image': "url('./gradient.png')",
       },
     },
   },
