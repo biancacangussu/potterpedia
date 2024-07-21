@@ -1,5 +1,7 @@
+import { NavBar } from "../components/NavBar";
+
 export function Home() {
 	return (
-        <h1>Olá, mundo!</h1>
+        <NavBar />
     );
 }

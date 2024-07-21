@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "BluuNext";
+  src: url(../../../public/fonts/BluuNext.otf);
+}
+
+@font-face {
+  font-family: "HarryPotter";
+  src: url(../../../public/fonts/HarryPotter.TTF);
+}
+
+body {
+  background-color: black;
+}
