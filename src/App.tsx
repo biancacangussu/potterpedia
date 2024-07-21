@@ -8,7 +8,7 @@ import { NavBar } from "./components/NavBar";
 function App() {
   return (
     <>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-image bg-cover bg-center bg-no-repeat opacity-50 pointer-events-none"></div>
+      <div className="fixed top-0 left-0 w-full h-full bg-gradient-image bg-cover bg-center bg-no-repeat opacity-50 pointer-events-none"></div>
       <Router>
         <NavBar />
         <Routes>
