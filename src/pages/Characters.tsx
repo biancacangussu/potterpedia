@@ -34,11 +34,11 @@ export const Characters: React.FC = () => {
               radius="lg"
               width="100%"
               alt={character.attributes.name}
-              className="w-full object-cover h-[300px]"
+              className="w-full object-cover h-[290px]"
               src={character.attributes.image || "/missing_character.svg"}
             />
           </CardBody>
-          <CardFooter className="text-small justify-between bg-black">
+          <CardFooter className="text-small flex flex-col items-start bg-black">
             <b>{character.attributes.name}</b>
           </CardFooter>
         </Card>

@@ -51,12 +51,10 @@ export function NavBar() {
       <NavbarContent as="div" className="items-center" justify="end">
         <Input
           isClearable
+          variant="bordered"
           classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
-            mainWrapper: "h-full",
-            input: "text-small",
-            inputWrapper:
-              "h-full font-normal text-default-500 bg-default-500/20",
+            inputWrapper: "h-full font-normal rounded-lg border border-gray-400/30 hover:border-white",
           }}
           placeholder="Search"
           size="sm"
