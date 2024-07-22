@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getSpells } from "../api/harryPotterAPI";
-import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Chip, Image } from "@nextui-org/react";
 
 interface Spell {
   id: string;
@@ -26,7 +26,7 @@ export const Spells: React.FC = () => {
   return (
     <div className="mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
       {spells.map((spell) => (
-        <Card className="rounded-lg" shadow="sm" key={spell.id}>
+        <Card shadow="sm" key={spell.id}>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -34,11 +34,17 @@ export const Spells: React.FC = () => {
               width="100%"
               alt={spell.attributes.name}
               className="w-full object-cover h-[300px]"
-              src={spell.attributes.image || "/missing_spell.svg"}
+              src={spell.attributes.image ?? "/missing_spell.svg"}
             />
           </CardBody>
-          <CardFooter className="text-small justify-between">
+          <CardFooter className="text-small justify-between flex flex-col items-start">
             <b>{spell.attributes.name}</b>
+            <div className="flex gap-1 justify-normal mt-3 flex-wrap">
+              <Chip size="sm" variant="flat">{spell.attributes.category}</Chip>
+              {spell.attributes.effect?.length < 60 && (
+                <Chip size="sm" variant="flat">{spell.attributes.effect}</Chip>
+              )}
+            </div>
           </CardFooter>
         </Card>
       ))}

@@ -1,7 +1,6 @@
-import { Loading } from "../components/Loading";
 
 export function Home() {
   return (
-    <Loading />
+    <h1>Teste home</h1>
   );
 }
