@@ -10,7 +10,7 @@ import { SearchIcon } from "../components/SearchIcon";
 
 export function NavBar() {
   return (
-    <Navbar className="text-neutral-50 ">
+    <Navbar isBlurred>
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <p
@@ -19,7 +19,7 @@ export function NavBar() {
               fontSize: "2rem",
               userSelect: "none",
             }}
-            className="hidden sm:block text-inherit"
+            className="text-white hidden sm:block text-inherit"
           >
             AlmanaqueHogwarts
           </p>
@@ -50,13 +50,14 @@ export function NavBar() {
 
       <NavbarContent as="div" className="items-center" justify="end">
         <Input
-          isClearable
           variant="bordered"
           classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
-            inputWrapper: "h-full font-normal rounded-lg border border-gray-400/30 hover:border-white",
+            mainWrapper: "h-full",
+            input: "text-small",
+            inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
           }}
-          placeholder="Search"
+          placeholder="Type to search..."
           size="sm"
           startContent={<SearchIcon size={18} />}
           type="search"

@@ -25,7 +25,7 @@ export const Characters: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-white mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
+    <div className="mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
       {characters.map((character) => (
         <Card className="rounded-lg" shadow="sm" key={character.id}>
           <CardBody className="overflow-visible p-0">
@@ -34,11 +34,11 @@ export const Characters: React.FC = () => {
               radius="lg"
               width="100%"
               alt={character.attributes.name}
-              className="w-full object-cover h-[290px]"
+              className="w-full object-cover h-[250px]"
               src={character.attributes.image || "/missing_character.svg"}
             />
           </CardBody>
-          <CardFooter className="text-small flex flex-col items-start bg-black">
+          <CardFooter className="text-small flex flex-col items-start">
             <b>{character.attributes.name}</b>
           </CardFooter>
         </Card>

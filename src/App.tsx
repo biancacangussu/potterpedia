@@ -9,15 +9,17 @@ function App() {
   return (
     <>
       <div className="fixed top-0 left-0 w-full h-full bg-gradient-image bg-cover bg-center bg-no-repeat opacity-50 pointer-events-none"></div>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/characters" element={<Characters />} />
-          <Route path="/potions" element={<Potions />} />
-          <Route path="/spells" element={<Spells />} />
-        </Routes>
-      </Router>
+      <div className="dark">
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/characters" element={<Characters />} />
+            <Route path="/potions" element={<Potions />} />
+            <Route path="/spells" element={<Spells />} />
+          </Routes>
+        </Router>
+      </div>
     </>
   );
 }

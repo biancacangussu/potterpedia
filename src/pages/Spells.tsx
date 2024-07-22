@@ -24,7 +24,7 @@ export const Spells: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-white mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
+    <div className="mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
       {spells.map((spell) => (
         <Card className="rounded-lg" shadow="sm" key={spell.id}>
           <CardBody className="overflow-visible p-0">
@@ -37,7 +37,7 @@ export const Spells: React.FC = () => {
               src={spell.attributes.image || "/missing_spell.svg"}
             />
           </CardBody>
-          <CardFooter className="text-small justify-between bg-black">
+          <CardFooter className="text-small justify-between">
             <b>{spell.attributes.name}</b>
           </CardFooter>
         </Card>

@@ -24,7 +24,7 @@ export const Potions: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-white mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
+    <div className="mx-5 my-2 gap-6 grid grid-cols-2 sm:grid-cols-4">
       {potions.map((potion) => (
         <Card className="rounded-lg" shadow="sm" key={potion.id}>
           <CardBody className="overflow-visible p-0">
@@ -37,7 +37,7 @@ export const Potions: React.FC = () => {
               src={potion.attributes.image || "/missing_potion.svg"}
             />
           </CardBody>
-          <CardFooter className="text-small justify-between bg-black">
+          <CardFooter className="text-small justify-between">
             <b>{potion.attributes.name}</b>
           </CardFooter>
         </Card>
