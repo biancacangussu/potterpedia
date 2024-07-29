@@ -40,7 +40,9 @@ export const Spells: React.FC = () => {
           <CardFooter className="text-small justify-between flex flex-col items-start">
             <b>{spell.attributes.name}</b>
             <div className="flex gap-1 justify-normal mt-3 flex-wrap">
-              <Chip size="sm" variant="flat">{spell.attributes.category}</Chip>
+              {spell.attributes.category && (
+                <Chip size="sm" variant="flat">{spell.attributes.category}</Chip>
+              )}
               {spell.attributes.effect?.length < 60 && (
                 <Chip size="sm" variant="flat">{spell.attributes.effect}</Chip>
               )}

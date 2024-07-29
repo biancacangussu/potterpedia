@@ -40,7 +40,9 @@ export const Potions: React.FC = () => {
           <CardFooter className="text-small justify-between flex flex-col items-start">
             <b>{potion.attributes.name}</b>
             <div className="flex gap-1 justify-normal mt-3 flex-wrap">
-              <Chip size="sm" variant="flat">{potion.attributes.difficulty}</Chip>
+              {potion.attributes.difficulty && (
+                <Chip size="sm" variant="flat">{potion.attributes.difficulty}</Chip>
+              )}
               {potion.attributes.effect?.length < 60 && (
                 <Chip size="sm" variant="flat">{potion.attributes.effect}</Chip>
               )}

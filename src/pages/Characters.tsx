@@ -9,7 +9,6 @@ interface Character {
     image: string;
     house?: string;
     ancestry?: string;
-    species?: string;
   };
 }
 
@@ -41,9 +40,16 @@ export const Characters: React.FC = () => {
           <CardFooter className="text-small justify-between flex flex-col items-start">
             <b>{character.attributes.name}</b>
             <div className="flex gap-1 justify-normal mt-3 flex-wrap">
-              <Chip size="sm" variant="flat">{character.attributes.house}</Chip>
-              <Chip size="sm" variant="flat">{character.attributes.ancestry}</Chip>
-              <Chip size="sm" variant="flat">{character.attributes.species}</Chip>
+              {character.attributes.house && (
+                <Chip size="sm" variant="flat">
+                  {character.attributes.house}
+                </Chip>
+              )}
+              {character.attributes.ancestry && (
+                <Chip size="sm" variant="flat">
+                  {character.attributes.ancestry}
+                </Chip>
+              )}
             </div>
           </CardFooter>
         </Card>
