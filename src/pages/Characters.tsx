@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { getCharacters } from "../api/harryPotterAPI";
 import { Card, CardBody, CardFooter, Chip, Image } from "@nextui-org/react";
 import { CardsPagination } from "../components/CardsPagination";
@@ -17,15 +18,22 @@ export const Characters: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const search = query.get('search') || '';
+
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data, meta } = await getCharacters(page);
+      const { data, meta } = await getCharacters(page, 48, search);
       setCharacters(data);
       setTotalPages(meta.pagination.last);
     };
     fetchData();
-  }, [page]);
+  }, [page, search]);
 
   return (
     <>
@@ -62,12 +70,12 @@ export const Characters: React.FC = () => {
       </div>
       {totalPages > 1 && (
         <div className="flex justify-center mt-5">
-        <CardsPagination
-          currentPage={page}
-          totalPages={totalPages ? totalPages : 101}
-          onPageChange={(newPage) => setPage(newPage)}
-        />
-      </div>
+          <CardsPagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={(newPage) => setPage(newPage)}
+          />
+        </div>
       )}
     </>
   );
