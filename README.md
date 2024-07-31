@@ -6,8 +6,8 @@ Potterpedia is an immersive website dedicated to the magical universe of Harry P
 
 ### Commits Emoji Examples:
 
-- 🚀 (:rocket:) - Para novas funcionalidades.
-- 🐛 (:bug:) - Para correções de bugs.
-- 🔥 (:fire:) - Para remoção de código ou arquivos.
-- ✨ (:sparkles:) - Para adicionar novos recursos.
-- 📝 (:memo:) - Para atualizar documentos.
+- 🚀 (:rocket:) - For new features.
+- 🐛 (:bug:) - For bug fixes.
+- 🔥 (:fire:) - For removing code or files.
+- ✨ (:sparkles:) - For adding new functionalities.
+- 📝 (:memo:) - For updating documentation.
