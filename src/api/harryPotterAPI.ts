@@ -1,4 +1,4 @@
-import { api } from "../lib/axios";
+import { api } from "../api/axios";
 
 export const getCharacters = async (pageNumber = 1, pageSize = 48, search = '') => {
   const response = await api.get(`/characters?page[number]=${pageNumber}&page[size]=${pageSize}&filter[name_cont]=${search}`);

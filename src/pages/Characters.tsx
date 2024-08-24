@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getCharacters } from "../api/harryPotterAPI";
-import { Card, CardBody, CardFooter, Chip, Image } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Chip,
+  Image,
+} from "@nextui-org/react";
 import { CardsPagination } from "../components/CardsPagination";
+import { useFavorites } from "../context/FavoritesContext";
 
 interface Character {
   id: string;
@@ -20,7 +28,8 @@ export const Characters: React.FC = () => {
   const [totalPages, setTotalPages] = useState(0);
   const location = useLocation();
   const query = new URLSearchParams(location.search);
-  const search = query.get('search') || '';
+  const search = query.get("search") || "";
+  const { addFavorite } = useFavorites();
 
   useEffect(() => {
     setPage(1);
@@ -64,6 +73,21 @@ export const Characters: React.FC = () => {
                   </Chip>
                 )}
               </div>
+              <Button
+                size="sm"
+                className="flex mt-3 self-center"
+                variant="solid"
+                onClick={() =>
+                  addFavorite({
+                    id: character.id,
+                    name: character.attributes.name,
+                    image:
+                      character.attributes.image || "/missing_character.svg",
+                  })
+                }
+              >
+                add to favorites
+              </Button>
             </CardFooter>
           </Card>
         ))}

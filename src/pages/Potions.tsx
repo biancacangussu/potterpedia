@@ -1,9 +1,16 @@
-// pages/Potions.tsx
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getPotions } from "../api/harryPotterAPI";
-import { Card, CardBody, CardFooter, Chip, Image } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Chip,
+  Image,
+} from "@nextui-org/react";
 import { CardsPagination } from "../components/CardsPagination";
+import { useFavorites } from "../context/FavoritesContext";
 
 interface Potion {
   id: string;
@@ -21,7 +28,8 @@ export const Potions: React.FC = () => {
   const [totalPages, setTotalPages] = useState(0);
   const location = useLocation();
   const query = new URLSearchParams(location.search);
-  const search = query.get('search') || '';
+  const search = query.get("search") || "";
+  const { addFavorite } = useFavorites();
 
   useEffect(() => {
     setPage(1);
@@ -65,6 +73,20 @@ export const Potions: React.FC = () => {
                   </Chip>
                 )}
               </div>
+              <Button
+                size="sm"
+                className="flex mt-3 self-center"
+                variant="solid"
+                onClick={() =>
+                  addFavorite({
+                    id: potion.id,
+                    name: potion.attributes.name,
+                    image: potion.attributes.image || "/missing_potion.svg",
+                  })
+                }
+              >
+                Add to Favorites
+              </Button>
             </CardFooter>
           </Card>
         ))}

@@ -5,8 +5,9 @@ import { Potions } from "./pages/Potions";
 import { Spells } from "./pages/Spells";
 import { NavBar } from "./components/NavBar";
 import { useEffect, useState } from "react";
-import { api } from "./lib/axios";
+import { api } from "./api/axios";
 import { Loading } from "./components/Loading";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get('https://api.potterdb.com/v1');
+        const response = await api.get("https://api.potterdb.com/v1");
         if (response.data && response.data.length > 0) {
           setLoading(false);
         } else {
@@ -33,17 +34,21 @@ function App() {
     <>
       <div className="fixed top-0 left-0 w-full h-full bg-gradient-image bg-cover bg-center bg-no-repeat opacity-50 pointer-events-none"></div>
       <div className="dark">
-        <Router>
-          <NavBar />
-          {loading ? <Loading /> : (
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/characters" element={<Characters />} />
-              <Route path="/potions" element={<Potions />} />
-              <Route path="/spells" element={<Spells />} />
-            </Routes>
-          )}
-        </Router>
+        <FavoritesProvider>
+          <Router>
+            <NavBar />
+            {loading ? (
+              <Loading />
+            ) : (
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/characters" element={<Characters />} />
+                <Route path="/potions" element={<Potions />} />
+                <Route path="/spells" element={<Spells />} />
+              </Routes>
+            )}
+          </Router>
+        </FavoritesProvider>
       </div>
     </>
   );
